@@ -1,8 +1,8 @@
 def checkAll(stuList):
     """
     This function was used to query all datas in student list
-    :param stuList:
-    :return:
+    :param stuList: inputted student list
+    :return: null
     """
     if len(stuList) == 0:
         print("列表为空")

@@ -1,4 +1,8 @@
 def add_student():
+    """
+    add student map to list
+    :return: a student map
+    """
     print("请输入相关数据：")
     name = input("姓名：")
     phone = input("电话：")
