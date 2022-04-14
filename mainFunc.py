@@ -3,28 +3,41 @@ student management system main function
 @author GXJ
 """
 import checkingFunction
+import re
 
 print("*" * 50)
 print("欢迎使用【名片管理系统】")
 print("1.新建名片")
 print("2.显示全部")
 print("3.查询名片")
+print("4.删除名片")
 print("0.退出系统")
 print("*" * 50)
 stu_list = []
-flag = True
 
-while flag:
-    operation = int(input("请选择操作："))
+while 1:
+    operation = input("请选择操作：")
+    if not re.match("^[0-4]{1}$", operation):
+        print("没有此操作")
+        continue
+    operation = int(operation)
     if operation == 1:
         stu_list.append(checkingFunction.add_student())
         print("添加完成")
     elif operation == 2:
         checkingFunction.checkAll(stu_list)
     elif operation == 3:
-        checkingFunction.checkO(stu_list)
+        if len(stu_list) == 0:
+            print("暂无数据,请先添加数据")
+        else:
+            checkingFunction.checkOne(stu_list)
+    elif operation == 4:
+        if len(stu_list) == 0:
+            print("暂无数据,请先添加数据")
+        else:
+            checkingFunction.deleteOne(stu_list)
     elif operation == 0:
         print("感谢使用本系统")
-        flag = False
+        break
     else:
         print("输入的操作有误！")
