@@ -14,9 +14,8 @@ def checkOne(stu):
         if s["name"] == name:
             print("姓名:%s  电话:%s  QQ:%s  邮箱:%s" % (s["name"], s["phone"], s["qq"], s["email"]), end="\n")
             return
-        else:
-            print("未查询到相关数据")
-            return
+    print("未查询到相关数据")
+    return
 
 
 def checkAll(stuList):
@@ -26,13 +25,9 @@ def checkAll(stuList):
     :return: null
     @author GXJ
     """
-    if len(stuList) == 0:
-        print("列表为空")
-        return
     for stu in stuList:
         print("姓名:%s  电话:%s  QQ:%s  邮箱:%s" % (stu["name"], stu["phone"], stu["qq"], stu["email"]), end="\n")
-    else:
-        print("以上为所有数据")
+    print("以上为所有数据")
 
 
 def add_student():

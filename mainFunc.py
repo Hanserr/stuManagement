@@ -24,20 +24,14 @@ while 1:
     if operation == 1:
         stu_list.append(checkingFunction.add_student())
         print("添加完成")
-    elif operation == 2:
+    elif operation == 2 and len(stu_list) > 0:
         checkingFunction.checkAll(stu_list)
-    elif operation == 3:
-        if len(stu_list) == 0:
-            print("暂无数据,请先添加数据")
-        else:
-            checkingFunction.checkOne(stu_list)
-    elif operation == 4:
-        if len(stu_list) == 0:
-            print("暂无数据,请先添加数据")
-        else:
-            checkingFunction.deleteOne(stu_list)
+    elif operation == 3 and len(stu_list) > 0:
+        checkingFunction.checkOne(stu_list)
+    elif operation == 4 and len(stu_list) > 0:
+        checkingFunction.deleteOne(stu_list)
     elif operation == 0:
         print("感谢使用本系统")
         break
     else:
-        print("输入的操作有误！")
+        print("列表为空")
