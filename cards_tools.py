@@ -1,3 +1,14 @@
+def showMenu():
+    print("*" * 50)
+    print("欢迎使用【名片管理系统】beta")
+    print("1.新建名片")
+    print("2.显示全部")
+    print("3.查询名片")
+    print('\r')
+    print("0.退出系统")
+    print("*" * 50)
+
+
 def checkOne(stu):
     """
     This function was used to query one.If wasn't find a data you need, it will print "未查询到相关数据"
@@ -11,11 +22,10 @@ def checkOne(stu):
         if s["name"] == name:
             print("姓名:%s  电话:%s  QQ:%s  邮箱:%s" % (s["name"], s["phone"], s["qq"], s["email"]), end="\n")
             while 1:
-                print("*" * 50, end='\n')
+                print("-" * 50, end='\n')
                 operation = int(input("请输入下一步操作1：修改名片  2：删除名片  3：返回上一级:"))
-                print("*" * 50, end='\n')
                 if operation == 1:
-                    alterUserInfo(stu, stu.index(s), name)
+                    alterUserInfo(stu, stu.index(s))
                 elif operation == 2:
                     deleteOne(stu, stu.index(s))
                 elif operation == 3:
@@ -36,7 +46,7 @@ def checkAll(stuList):
     print("以上为所有数据")
 
 
-def add_student(stu_list):
+def addStudent(stu_list):
     """
     add student maps to list
     :return: a student map
@@ -67,12 +77,10 @@ def deleteOne(stu, index):
     return
 
 
-def alterUserInfo(stu_list, index, name):
-    for i in stu_list:
-        if i["name"] == name:
-            i["name"] = input("姓名：")
-            i["phone"] = input("电话：")
-            i["qq"] = input("QQ：")
-            i["email"] = input("邮件：")
-            print("修改成功")
-            break
+def alterUserInfo(stu_list, index):
+    stu_list[index]["name"] = input("姓名：")
+    stu_list[index]["phone"] = input("电话：")
+    stu_list[index]["qq"] = input("QQ：")
+    stu_list[index]["email"] = input("邮件：")
+    print("修改成功")
+
